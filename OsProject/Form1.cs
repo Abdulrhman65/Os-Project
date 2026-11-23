@@ -9,6 +9,9 @@ namespace OsProject
         public Form1()
         {
             InitializeComponent();
+            panel8.Paint += panel8_Paint;
+            dataGridView1.CellClick += (s, e) => panel8.Invalidate();
+            PathBox.TextChanged += (s, e) => panel8.Invalidate();
         }
         #region Abdulrhman Nofal's
         #region Public Vars
@@ -771,6 +774,80 @@ namespace OsProject
 
         #endregion
 
-    }
+        #region Abdelrahman Hassan
 
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+            string path = CurrentFolderPath;
+            if (SelectedItemPath != "")
+                path = SelectedItemPath;
+
+            string root = "C:\\";
+            if (path != "" && path != "This PC")
+                root = Path.GetPathRoot(path);
+
+            DriveInfo drive = new DriveInfo(root);
+            if (!drive.IsReady)
+                return;
+
+            double total = drive.TotalSize / (1024.0 * 1024 * 1024);
+            double free = drive.TotalFreeSpace / (1024.0 * 1024 * 1024);
+            double used = total - free;
+            double ratio = used / total;
+
+            int percent = (int)(ratio * 100);
+            label14.Text = "Disk (" + drive.Name[0] + ":):";
+
+            int x = label14.Right + 5;
+            int y = label14.Top;
+            int h = label14.Height;
+            int w = panel8.Width - x - DiskSpaceLabel.Width - 20;
+
+            if (w <= 10)
+                return;
+
+            Graphics g = e.Graphics;
+            g.FillRectangle(Brushes.White, x, y, w, h);
+
+            if (ratio > 0.8)
+                g.FillRectangle(Brushes.Red, x, y, (int)(w * ratio), h);
+            else
+                g.FillRectangle(Brushes.Green, x, y, (int)(w * ratio), h);
+
+            g.DrawRectangle(Pens.Gray, x, y, w, h);
+
+            DiskSpaceLabel.Left = x + w + 5;
+            DiskSpaceLabel.Text = percent + "%";
+        }
+
+
+
+
+
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "Delete all logs?",
+            "Confirm Clear",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+
+            if (result == DialogResult.Yes)
+            {
+                mutex.WaitOne();
+                try { LogBox.Clear(); }
+                finally { mutex.ReleaseMutex(); }
+            }
+
+
+
+
+
+        }
+
+    
+    }
+    #endregion
 }

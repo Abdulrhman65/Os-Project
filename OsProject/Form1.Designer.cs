@@ -139,7 +139,7 @@
             PathLable.ForeColor = Color.FromArgb(30, 41, 59);
             PathLable.Location = new Point(14, 15);
             PathLable.Name = "PathLable";
-            PathLable.Size = new Size(47, 18);
+            PathLable.Size = new Size(45, 20);
             PathLable.TabIndex = 1;
             PathLable.Text = "Path:";
             // 
@@ -624,6 +624,7 @@
             button10.TabIndex = 5;
             button10.Text = "Clear Log";
             button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
             // 
             // label3
             // 
@@ -956,7 +957,7 @@
             label17.ForeColor = Color.FromArgb(148, 163, 184);
             label17.Location = new Point(1034, 8);
             label17.Name = "label17";
-            label17.Size = new Size(14, 18);
+            label17.Size = new Size(13, 20);
             label17.TabIndex = 19;
             label17.Text = "|";
             // 
@@ -968,7 +969,7 @@
             label18.ForeColor = Color.FromArgb(30, 41, 59);
             label18.Location = new Point(768, 10);
             label18.Name = "label18";
-            label18.Size = new Size(234, 17);
+            label18.Size = new Size(231, 19);
             label18.TabIndex = 17;
             label18.Text = "🔒 Synchronization: Using Mutex";
             // 
@@ -988,7 +989,7 @@
             label14.ForeColor = Color.FromArgb(30, 41, 59);
             label14.Location = new Point(1052, 10);
             label14.Name = "label14";
-            label14.Size = new Size(107, 17);
+            label14.Size = new Size(109, 19);
             label14.TabIndex = 15;
             label14.Text = "💾 Disk Space:";
             // 
@@ -1000,7 +1001,7 @@
             DiskSpaceLabel.ForeColor = Color.FromArgb(15, 23, 42);
             DiskSpaceLabel.Location = new Point(1166, 10);
             DiskSpaceLabel.Name = "DiskSpaceLabel";
-            DiskSpaceLabel.Size = new Size(16, 17);
+            DiskSpaceLabel.Size = new Size(17, 19);
             DiskSpaceLabel.TabIndex = 16;
             DiskSpaceLabel.Text = "0";
             // 
@@ -1011,7 +1012,7 @@
             label11.ForeColor = Color.FromArgb(30, 41, 59);
             label11.Location = new Point(464, 10);
             label11.Name = "label11";
-            label11.Size = new Size(67, 17);
+            label11.Size = new Size(66, 19);
             label11.TabIndex = 13;
             label11.Text = "Opened:";
             // 
@@ -1022,7 +1023,7 @@
             OpenedLabel.ForeColor = Color.FromArgb(15, 23, 42);
             OpenedLabel.Location = new Point(536, 10);
             OpenedLabel.Name = "OpenedLabel";
-            OpenedLabel.Size = new Size(16, 17);
+            OpenedLabel.Size = new Size(17, 19);
             OpenedLabel.TabIndex = 14;
             OpenedLabel.Text = "0";
             // 
@@ -1033,7 +1034,7 @@
             label12.ForeColor = Color.FromArgb(148, 163, 184);
             label12.Location = new Point(446, 8);
             label12.Name = "label12";
-            label12.Size = new Size(14, 18);
+            label12.Size = new Size(13, 20);
             label12.TabIndex = 12;
             label12.Text = "|";
             // 
@@ -1044,7 +1045,7 @@
             label13.ForeColor = Color.FromArgb(30, 41, 59);
             label13.Location = new Point(338, 10);
             label13.Name = "label13";
-            label13.Size = new Size(65, 17);
+            label13.Size = new Size(65, 19);
             label13.TabIndex = 10;
             label13.Text = "Deleted:";
             // 
@@ -1055,7 +1056,7 @@
             DeletedLabel.ForeColor = Color.FromArgb(15, 23, 42);
             DeletedLabel.Location = new Point(408, 10);
             DeletedLabel.Name = "DeletedLabel";
-            DeletedLabel.Size = new Size(16, 17);
+            DeletedLabel.Size = new Size(17, 19);
             DeletedLabel.TabIndex = 11;
             DeletedLabel.Text = "0";
             // 
@@ -1066,7 +1067,7 @@
             label9.ForeColor = Color.FromArgb(148, 163, 184);
             label9.Location = new Point(320, 8);
             label9.Name = "label9";
-            label9.Size = new Size(14, 18);
+            label9.Size = new Size(13, 20);
             label9.TabIndex = 9;
             label9.Text = "|";
             // 
@@ -1077,7 +1078,7 @@
             label10.ForeColor = Color.FromArgb(30, 41, 59);
             label10.Location = new Point(212, 10);
             label10.Name = "label10";
-            label10.Size = new Size(68, 17);
+            label10.Size = new Size(66, 19);
             label10.TabIndex = 7;
             label10.Text = "Created:";
             // 
@@ -1088,7 +1089,7 @@
             CreatedLabel.ForeColor = Color.FromArgb(15, 23, 42);
             CreatedLabel.Location = new Point(282, 10);
             CreatedLabel.Name = "CreatedLabel";
-            CreatedLabel.Size = new Size(16, 17);
+            CreatedLabel.Size = new Size(17, 19);
             CreatedLabel.TabIndex = 8;
             CreatedLabel.Text = "0";
             // 
@@ -1099,7 +1100,7 @@
             label8.ForeColor = Color.FromArgb(148, 163, 184);
             label8.Location = new Point(194, 8);
             label8.Name = "label8";
-            label8.Size = new Size(14, 18);
+            label8.Size = new Size(13, 20);
             label8.TabIndex = 6;
             label8.Text = "|";
             // 
@@ -1110,7 +1111,7 @@
             label7.ForeColor = Color.FromArgb(30, 41, 59);
             label7.Location = new Point(14, 10);
             label7.Name = "label7";
-            label7.Size = new Size(136, 17);
+            label7.Size = new Size(130, 19);
             label7.TabIndex = 4;
             label7.Text = "Operations Count:";
             // 
@@ -1121,7 +1122,7 @@
             OperationsCountLabel.ForeColor = Color.FromArgb(15, 23, 42);
             OperationsCountLabel.Location = new Point(156, 10);
             OperationsCountLabel.Name = "OperationsCountLabel";
-            OperationsCountLabel.Size = new Size(16, 17);
+            OperationsCountLabel.Size = new Size(17, 19);
             OperationsCountLabel.TabIndex = 5;
             OperationsCountLabel.Text = "0";
             // 
